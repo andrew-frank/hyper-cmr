@@ -18,23 +18,24 @@
 
 namespace org.blockowisko.hypercmrsystem
 
-asset CMRDocument identified by transactionID {
-    o String transactionID
+asset CMRDocument identified by documentID {
+    o String documentID
     o String eCMRID
     o String mainExchange
     o Integer boxCount
-    --> Speditor owner
+    --> Issuer issuer
 }
 
-participant Speditor identified by speditorID {
-  	o String speditorID
-    o String name
-}
+// participant Speditor identified by speditorID {
+//   	o String speditorID
+//     o String name
+// }
 
 participant Issuer identified by issuerID {
     o String issuerID
     o String name
     o String telephone
+    --> CMRDocument[] documents
 }
 
 participant Receipent identified by receipentID {
@@ -43,8 +44,11 @@ participant Receipent identified by receipentID {
     o String telephone
 }
 
-transaction IssueTransport {
-    --> CMRDocument document
+transaction IssueDocument {
+    o String documentID
+    o String eCMRID
+    o String mainExchange
+    o Integer boxCount
     --> Issuer issuer
     --> Receipent receipent
 }
