@@ -18,25 +18,33 @@
 
 namespace org.blockowisko.hypercmrsystem
 
-participant SampleParticipant identified by participantId {
-  o String participantId
-  o String firstName
-  o String lastName
+asset CMRDocument identified by transactionID {
+    o String transactionID
+    o String eCMRID
+    o String mainExchange
+    o Integer boxCount
+    --> Speditor owner
 }
 
-asset SampleAsset identified by assetId {
-  o String assetId
-  --> SampleParticipant owner
-  o String value
+participant Speditor identified by speditorID {
+  	o String speditorID
+    o String name
 }
 
-transaction SampleTransaction {
-  --> SampleAsset asset
-  o String newValue
+participant Issuer identified by issuerID {
+    o String issuerID
+    o String name
+    o String telephone
 }
 
-event SampleEvent {
-  --> SampleAsset asset
-  o String oldValue
-  o String newValue
+participant Receipent identified by receipentID {
+    o String receipentID
+    o String name
+    o String telephone
+}
+
+transaction IssueTransport {
+    --> CMRDocument document
+    --> Issuer issuer
+    --> Receipent receipent
 }
