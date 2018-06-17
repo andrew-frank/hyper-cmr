@@ -49,3 +49,6 @@ transaction IssueDocument {
     o String to
     o String carrier
 }
+
+transaction SetupDemoData  {
+}
