@@ -27,6 +27,7 @@ asset CMRDocument identified by documentID {
     o Integer status
     o String statusMessage
     o Integer boxCount
+    o String driverNotes
 }
 
 participant Issuer identified by issuerID {
@@ -48,6 +49,11 @@ transaction IssueDocument {
     o String from
     o String to
     o String carrier
+}
+
+transaction DriverDepartureSignature {
+  o String documentID
+  o String notes
 }
 
 transaction SetupDemoData  {
