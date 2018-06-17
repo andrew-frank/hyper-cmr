@@ -3,7 +3,7 @@
     "composer": "^0.19.9"
   },
   "name": "hyper-cmr-system",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Hyper CMR System",
   "scripts": {
     "prepublish": "mkdirp ./dist && composer archive create --sourceType dir --sourceName . -a ./dist/hyper-cmr-system.bna",

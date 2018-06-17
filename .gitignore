@@ -1,7 +1,7 @@
 .DS_Store
 
 # Hyperledger binaries
-hyper-cmr-system@0.0.1.bna
+*.bna
 networkadmin.card
 
 # Logs
